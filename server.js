@@ -7,6 +7,7 @@ const PORT = 3000
 // BODY PARSER (What does that actually mean?)
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride("_method"))
+app.use(express.static('public'))
 //======    CONTROLLERS     ======================
 const tasksController = require("./controllers/tasks.js")
 app.use ("/tasks", tasksController)
