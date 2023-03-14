@@ -28,6 +28,30 @@
                     </li>
                 <% } %>
             </ul>
+            <div class="table-container">
+                <table class="u-full-width">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Details</th>
+                            <th>Category</th>
+                            <th>Tags</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let i = 0; i < tasks.length; i++) { %>
+                            <tr>
+                                <td><%=tasks[i].name%></td>
+                                <td><%=tasks[i].date%></td>
+                                <td><%=tasks[i].details%></td>
+                                <td><%=tasks[i].category%></td>
+                                <td><%=tasks[i].tags%></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
         </main>
     </div>
 </body>

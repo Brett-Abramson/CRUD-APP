@@ -17,7 +17,7 @@ app.get("/", (req,res) => {
 
 
 // connect to the mongo task subdb
-const mongoTaskURI = "mongodb://localhost:27017/" + "tweets"
+const mongoTaskURI = "mongodb://localhost:27017/" + "tracker"
 mongoose.connect(mongoTaskURI)
 
 app.listen(PORT, () => {
