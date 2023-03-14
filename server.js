@@ -1,11 +1,12 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const app = express()
+const methodOverride = require("method-override")
 
 const PORT = 3000
 // BODY PARSER (What does that actually mean?)
 app.use(express.urlencoded({extended:true}))
-
+app.use(methodOverride("_method"))
 //======    CONTROLLERS     ======================
 const tasksController = require("./controllers/tasks.js")
 app.use ("/tasks", tasksController)

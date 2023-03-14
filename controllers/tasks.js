@@ -5,7 +5,9 @@ const express = require("express");
 const { translateAliases } = require("../models/taskSchema.js");
 const router = express.Router();
 const Task = require("../models/taskSchema.js")
-
+//==============================================================
+//===   GET ROUTES  =========
+//===============================================================
 router.get("/", (req, res) => {
     Task.find({}).then((foundTasks) => {
         res.render("tasks/index.ejs", {
@@ -13,7 +15,6 @@ router.get("/", (req, res) => {
         })
     })
 })
-
 router.get("/new", (req, res) => {
     res.render("tasks/new.ejs")
 })
@@ -25,12 +26,20 @@ router.get("/:id", (req, res) => {
         })
     })
 })
-
+//======================================================
+//===   ACTION ROUTES   ===
+//======================================================
+//===   ADD TASK    ===
 router.post("/", (req, res) => {
     Task.create(req.body).then((createdTask) => {
         res.redirect("/tasks")
     })
 })
-
+//===   DELETE TASK ===
+router.delete("/:id", (req,res) => {
+    Task.findByIdAndRemove(req.params.id).then(() => {
+        res.redirect("/tasks")
+    })
+})
 
 module.exports = router
