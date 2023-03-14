@@ -17,6 +17,14 @@ router.get("/", (req, res) => {
 router.get("/new", (req, res) => {
     res.render("tasks/new.ejs")
 })
+//===   SHOW/EDIT PAGE ===
+router.get("/:id", (req, res) => {
+    Task.findById(req.params.id).then((foundTask) => {
+        res.render("tasks/show.ejs", {
+            task: foundTask
+        })
+    })
+})
 
 router.post("/", (req, res) => {
     Task.create(req.body).then((createdTask) => {

@@ -42,7 +42,7 @@
                     <tbody>
                         <% for(let i = 0; i < tasks.length; i++) { %>
                             <tr>
-                                <td><%=tasks[i].name%></td>
+                                <td><a href="/tasks/<%=tasks[i]._id%>"><%=tasks[i].name%></a></td>
                                 <td><%=tasks[i].date%></td>
                                 <td><%=tasks[i].details%></td>
                                 <td><%=tasks[i].category%></td>
