@@ -9,6 +9,22 @@
 <body>
     <div class="container">
         <h1>New Task</h1>
+
+        <main>
+            <form action="/tasks" method="POST">
+                <label for="taskName">Name:</label>
+                <input type="text" name="name" id="taskName" /><br>
+                <label for="taskDate">Date:</label>
+                <input type="text" name="date" id="taskDate" /><br>
+                <label for="taskDetails">Details:</label>
+                <input type="text" name="details" id="taskDetails" /><br>
+                <label for="taskCategory">Category</label>
+                <input type="text" name="category" /><br>
+                <label for="taskTags">Tags</label>
+                <input type="text" name="tags" id="taskTags"/><br>
+                <input type="submit" value="Add Task">
+            </form>
+        </main>
     </div>
 </body>
 </html>

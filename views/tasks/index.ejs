@@ -19,7 +19,16 @@
                 </li>
             </ul>
         </nav>
-
+        <main>
+            <h2>Tasks</h2>
+            <ul>
+                <% for(let i = 0; i < tasks.length; i++) { %>
+                    <li>
+                        <%=tasks[i].name%>
+                    </li>
+                <% } %>
+            </ul>
+        </main>
     </div>
 </body>
 </html>
