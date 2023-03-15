@@ -2,11 +2,17 @@ const express = require("express")
 const router = express.Router()
 const Checklist = require("../models/checklistSchema.js")
 
+
+
 //==============================================================
 //===   GET ROUTES  =========
 //===============================================================
 router.get("/", (req,res) => {
-    res.render("checklists/index.ejs")
+    Checklist.find({}).then((checklists) => {
+        res.render("checklists/index.ejs", {
+            checklists
+        })
+    })
 })
 
 router.get("/new", (req, res) => {
