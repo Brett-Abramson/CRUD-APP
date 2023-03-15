@@ -12,7 +12,8 @@ app.use(express.static('public'))
 //======    CONTROLLERS     ======================
 const tasksController = require("./controllers/tasks.js")
 app.use ("/tasks", tasksController)
-
+const checklistsController = require("./controllers/checklists.js")
+app.use("/checklists", checklistsController)
 // ===========  GET ======================
 app.get("/", (req,res) => {
     res.render("index.ejs")
