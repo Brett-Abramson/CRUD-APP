@@ -1,3 +1,7 @@
 * {
     background-color: blanchedalmond;
 }
+
+.task-table-heads:hover {
+    cursor: pointer;
+}

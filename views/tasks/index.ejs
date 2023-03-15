@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Gumby Tracker</h1>
+        <h1>Task Tracker</h1>
         <nav>
             <ul>
                 <li>
@@ -27,10 +27,10 @@
                 <% } %>
             </ul>
             <div class="table-container">
-                <table class="u-full-width">
+                <table class="u-full-width" id="task-table">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th class="task-table-heads" id="task-table-name">Name</th>
                             <th>Date</th>
                             <th>Details</th>
                             <th>Category</th>
@@ -53,5 +53,50 @@
             </div>
         </main>
     </div>
+<script>
+    const sortTable = (n) => {
+        let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0
+        table = $("#task-table")
+        switching = true
+        dir = "asc"
+        while(switching) {
+            switching = false
+            rows = table.rows
+            for ( let i = 1; i < (rows.length - 1); i++){
+                shouldSwitch = false
+                x = rows[i].$("td")[n]
+                y = rows[i + 1].$("td")[n]
+                if (dir === "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true
+                        break
+                    }
+                } else if (dir === "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true
+                        break
+                    }
+                }
+            }
+        } 
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i])
+            switching = true
+            switchcount ++
+        } else {
+            if (switchcount == 0 && dir == "asc") {
+                dir = "desc"
+                switching = true
+            }
+        }
+    }
+    $( () => {
+        $("#task-table-name").on("click", () => {
+            sortTable(0)
+            console.log("working")
+        })
+
+    })
+</script>
 </body>
 </html>
