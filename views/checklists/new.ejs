@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head.ejs") %>
+    <title>New Checklist</title>
+</head>
+<body>
+    <header>
+        <h1>Create A New Checklist</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/"><button>Home</button></a>
+                </li>
+                <li>
+                    <a href="/checklists/"><button>Checklists</button></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="/checklists" method="post">
+            <label for="checklist-name">Name</label>
+            <input type="text" name="name" id="checklist-name" />
+            <label for="checklist-priority" >Priority</label>
+            <input type="text" name="priority" id="checklist-priority" list="priority-options">
+            <datalist id="priority-options">
+                <option value="1">Urgent</option>
+                <option value="2">High</option>
+                <option value="3">Medium</option>
+                <option value="4">Low</option>
+                <option value="5">None</option>
+            </datalist>
+            <input type="submit" value="Add to List" />
+        </form>
+    </main>
+</body>
+</html>
