@@ -22,9 +22,20 @@
     </nav>
     <main>
         <section>
-
+            <form action="/tasks/<%=task._id%>?_method=PUT" method="POST">
+                <label for="taskNameUpdate">Name:</label>
+                <input type="text" name="name" value="<%=task.name%>" id="taskNameUpdate" /><br>
+                <label for="taskDateUpdate">Date:</label>
+                <input type="text" name="date" value="<%=task.date%>" id="taskDateUpdate" /><br>
+                <label for="taskDetailsUpdate">Details:</label>
+                <input type="text" name="details" value="<%=task.details%>" id="taskDetailsUpdate" /><br>
+                <label for="taskCategoryUpdate">Category</label>
+                <input type="text" name="taskCategoryUpdate" value="<%=task.category%>" id="taskCategoryUpdate" /><br>
+                <label for="taskTagsUpdate">Tags</label>
+                <input type="text" name="tags" value="<%=task.tags%>" id="taskTagsUpdate"/><br>
+                <input type="submit" value="Update Task">
+            </form>
         </section>
-
         <section>
             <form action="/tasks/<%=task._id%>?_method=DELETE" method="post">
                 <input type="submit" value="Delete Task">

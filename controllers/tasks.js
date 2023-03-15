@@ -41,5 +41,11 @@ router.delete("/:id", (req,res) => {
         res.redirect("/tasks")
     })
 })
+//===   EDIT TASK   ===
+router.put("/:id", (req, res) => {
+    Task.findByIdAndUpdate(req.params.id, req.body).then(() => {
+        res.redirect("/tasks")
+    })
+})
 
 module.exports = router
