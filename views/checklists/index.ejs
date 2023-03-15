@@ -7,18 +7,17 @@
 <body>
     <div class="container">
         <header>
+            <nav>
+                <%- include("../partials/nav.ejs") %>
+            </nav>
             <h1>Checklists</h1>
-        </header>
-        <nav>
             <ul>
-                <li>
-                    <a href="/"><button>Home</button></a>
-                </li>
                 <li>
                     <a href="/checklists/new">Create A New Checklist</a>
                 </li>
             </ul>
-        </nav>
+        </header>
+
         <main>
             <h2>List of Checklists</h2>
             <ul>

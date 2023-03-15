@@ -6,20 +6,11 @@
 </head>
 <body>
     <header>
+        <%- include("../partials/nav.ejs") %>
         <h1>
             <%=task.name%>
         </h1>
     </header>
-    <nav>
-        <ul>
-            <li>
-                <a href="/"><button>Home</button></a>
-            </li>
-            <li>
-                <a href="/tasks/"><button>Tasks</button></a>
-            </li>
-        </ul>
-    </nav>
     <main>
         <section>
             <form action="/tasks/<%=task._id%>?_method=PUT" method="POST">

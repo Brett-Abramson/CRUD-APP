@@ -5,9 +5,12 @@
     <%- include("../partials/head.ejs") %>
 </head>
 <body>
-    <div class="container">
+    <header>
+        <%- include("../partials/nav.ejs") %>
         <h1>New Task</h1>
-
+    </header>
+    <div class="container">
+        
         <main>
             <form action="/tasks" method="POST">
                 <label for="taskName">Name:</label>

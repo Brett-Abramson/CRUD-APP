@@ -18,14 +18,21 @@ router.get("/", (req,res) => {
 router.get("/new", (req, res) => {
     res.render("checklists/new.ejs")
 })
+router.get("/:id", (req, res) => {
+    Checklist.findById(req.params.id).then((checklist) => {
+        res.render("checklists/show.ejs", {
+            checklist
+        })
+    })
+})
 //======================================================
 //===   ACTION ROUTES   ===
 //======================================================
 //===   ADD LIST    ===
 router.post("/", (req, res) => {
-    Checklist.create(req.body).then((createdChecklist) => {
-        res.render("checklists/index.ejs", {
-            checklists: createdChecklist
+    Checklist.create(req.body).then(() => {
+        res.redirect("/checklists", {
+            
         })
     })
 })

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const checklistSchema = mongoose.Schema({
+const checklistSchema = new mongoose.Schema({
     name: String,
     priority: Number
 })
