@@ -1,8 +1,8 @@
 const mongoose = require("mongoose")
 
 const checklistSchema = new mongoose.Schema({
-    name: String,
-    priority: Number
+    title: {type: String, required: true},
+    items: [{ type: String}]
 })
 
 const Checklist = mongoose.model("Checklist", checklistSchema)

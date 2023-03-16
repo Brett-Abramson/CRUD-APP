@@ -16,18 +16,17 @@
     </header>
     <main>
         <form action="/checklists" method="post">
-            <label for="checklist-name">Name</label>
-            <input type="text" name="name" id="checklist-name" />
-            <label for="checklist-priority" >Priority</label>
-            <input type="text" name="priority" id="checklist-priority" list="priority-options">
-            <datalist id="priority-options">
-                <option value="1">Urgent</option>
-                <option value="2">High</option>
-                <option value="3">Medium</option>
-                <option value="4">Low</option>
-                <option value="5">None</option>
-            </datalist>
-            <input type="submit" value="Add to List" />
+            <label for="checklist-name">Checklist Name</label>
+            <input type="text" name="title" id="checklist-name" />
+            <div class="new-item-container">
+                <label for="item-name">Item 1:</label>
+                <input type="text" name="items" id="item-name" />
+                <label for="item-name">Item 2:</label>
+                <input type="text" name="items" id="item-name" />
+
+            </div>
+            
+            <input type="submit" value="Create Checklist" />
         </form>
     </main>
 </body>

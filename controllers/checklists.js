@@ -31,9 +31,7 @@ router.get("/:id", (req, res) => {
 //===   ADD LIST    ===
 router.post("/", (req, res) => {
     Checklist.create(req.body).then(() => {
-        res.redirect("/checklists", {
-            
-        })
+        res.redirect("/checklists")
     })
 })
 

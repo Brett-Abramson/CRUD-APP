@@ -5,7 +5,7 @@
     <%- include("../partials/head.ejs") %>
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <%- include("../partials/nav.ejs") %>
         <h1>Task Tracker</h1>
         <nav>
@@ -25,7 +25,7 @@
                 <% } %>
             </ul>
             <div class="table-container">
-                <table class="u-full-width" id="task-table">
+                <table class="table" id="task-table">
                     <thead>
                         <tr>
                             <th class="task-table-heads" id="task-table-name">Name</th>
@@ -55,7 +55,9 @@
 <script>
     
     $( () => {
-        $("#task-table").DataTable()
+        $("#task-table").DataTable({
+            paging: false
+        })
 
     })
 </script>
