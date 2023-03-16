@@ -11,7 +11,7 @@
         <h1><%=checklist.name%></h1>
     </header>
     <main>
-        <p><%=checklist.items%></p>
+        <div class="checklist-container">
         <% for( let i = 0; i < checklist.items.length; i++) { %>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault<%=i%>">
@@ -20,10 +20,19 @@
                 </label>
               </div>
             <% } %>
+        </div>
+        <div class="checklist-add-item-container">
+            <form action="/checklists/<%=checklist._id%>?_method=PUT" method="POST">
+                <% for( let i = 0; i < checklist.items.length; i++) { %>
+                    <input type="hidden" name="items" value="<%=checklist.items[i]%>">
+                    <% } %>
+                <label for="addChecklistItem">Add Item</label>
+                <input type="text" name="items" id="addChecklistItem">
+                <input type="submit" value="Add Item">
+            </form>
+        </div>
 
-        <p>a function that will take each item from the array and put it on its own line, there should be a checkbox next to the item</p>
-        <p>there should be the ability here to add a new item to the checklist... this can be achieved by pushing to the already existing array</p>
-        <p>so in mongoose it looks like {name: "name of checklist", <br> items: [item 1, item 2, item 3...]}</p>
+
         <p>better yet would have the items looking like items: [{name: "name of task", priority: priority of task}, {name: "name of task 2", proirity: priority level}]</p>
     </main>
     <footer>

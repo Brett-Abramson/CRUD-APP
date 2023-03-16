@@ -34,5 +34,10 @@ router.post("/", (req, res) => {
         res.redirect("/checklists")
     })
 })
-
+//=== ADD ITEM  ===
+router.put("/:id", (req, res) => {
+    Checklist.findByIdAndUpdate(req.params.id, req.body).then(() => {
+        res.redirect("/checklists")
+    })
+})
 module.exports = router

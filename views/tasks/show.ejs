@@ -12,7 +12,7 @@
         </h1>
     </header>
     <main>
-        <section>
+        <div>
             <form action="/tasks/<%=task._id%>?_method=PUT" method="POST">
                 <label for="taskNameUpdate">Name:</label>
                 <input type="text" name="name" value="<%=task.name%>" id="taskNameUpdate" /><br>
@@ -26,12 +26,12 @@
                 <input type="text" name="tags" value="<%=task.tags%>" id="taskTagsUpdate"/><br>
                 <input type="submit" value="Update Task">
             </form>
-        </section>
-        <section>
+        </div>
+        <div>
             <form action="/tasks/<%=task._id%>?_method=DELETE" method="post">
                 <input type="submit" value="Delete Task">
             </form>
-        </section>
+        </div>
     </main>
 
 </body>
