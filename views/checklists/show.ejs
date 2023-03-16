@@ -5,12 +5,23 @@
     <title><%=checklist.name%></title>
 </head>
 <body>
+    <div class="container-fluid">
     <header>
             <%- include("../partials/nav.ejs") %>
         <h1><%=checklist.name%></h1>
     </header>
     <main>
-        <p>this will show the item in the currently shown checklist</p>
+        <p><%=checklist.items%></p>
+        <% for( let i = 0; i < checklist.items.length; i++) { %>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault<%=i%>">
+                <label class="form-check-label<%=i%>" for="flexCheckDefault">
+                  <%=checklist.items[i]%>
+                </label>
+              </div>
+            <% } %>
+
+        <p>a function that will take each item from the array and put it on its own line, there should be a checkbox next to the item</p>
         <p>there should be the ability here to add a new item to the checklist... this can be achieved by pushing to the already existing array</p>
         <p>so in mongoose it looks like {name: "name of checklist", <br> items: [item 1, item 2, item 3...]}</p>
         <p>better yet would have the items looking like items: [{name: "name of task", priority: priority of task}, {name: "name of task 2", proirity: priority level}]</p>
@@ -21,5 +32,6 @@
             The show page will allow a user to make more detailed notes for the items in their checklist. This is where they view a checklist... maybe it pops out... show you have a list of your lists, then when you click on one in displays in that page - was there a better way to use hidden pages then the one I had figured out?
         </p>
     </footer>
+</div>
 </body>
 </html>
