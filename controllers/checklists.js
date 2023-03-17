@@ -40,4 +40,13 @@ router.put("/:id", (req, res) => {
         res.redirect("/checklists")
     })
 })
+//=== DELETE ITEM ===
+router.delete("/:id/:itemIndex", (req,res) => {
+    Checklist.findById(req.params.id).then((checklist) => {
+        checklist.items.splice(req.params.itemIndex, 1)
+        return checklist.save()
+    }).then (() => {
+        res.redirect(`/checklists/${req.params.id}`)
+    })
+})
 module.exports = router

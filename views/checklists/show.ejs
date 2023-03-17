@@ -24,7 +24,9 @@
           </label>
           </input>
           <div class="collapse show">
-            <form action=""></form>
+            <form action="/checklists/<%=checklist._id%>/<%=[i]%>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete Item">
+            </form>
           </div>
         </div>
         <% } %>
