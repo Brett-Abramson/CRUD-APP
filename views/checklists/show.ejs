@@ -16,16 +16,28 @@
       <div class="checklist-container">
         <% for( let i = 0; i < checklist.items.length; i++) { %>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault<%=i%>">
-          <label class="form-check-label<%=i%>" for="flexCheckDefault">
-              <a href="#collapse" data-bs-toggle="collapse" role="button"  >
-            <%=checklist.items[i]%>
-        </a>
-          </label>
-          </input>
+          <div id="checklist-item-<%=i%>">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault<%=i%>">
+            <label class="form-check-label<%=i%>" for="flexCheckDefault<%=i%>">
+              <a href="#collapse" data-bs-toggle="collapse" role="button">
+                <%=checklist.items[i]%>
+              </a>
+            </label>
+            </input>
+          </div>
+          <div id="edit-checklist-item-<%=i%>">
+            <form action="/checklists/<%=checklist._id%>/<%=[i]%>?_method=PUT" method="POST">
+                <input type="text" name="items[<%=i%>]" value="<%=checklist.items[i]%>">
+                <input type="submit" value="Edit Item">          
+            </form>
+          </div>
+
+          <button id="edit-item-btn-<%=i%>">Rename</button>
+
           <div class="collapse show">
+
             <form action="/checklists/<%=checklist._id%>/<%=[i]%>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete Item">
+              <input type="submit" value="Delete Item">
             </form>
           </div>
         </div>
@@ -41,12 +53,10 @@
           <input type="submit" value="Add Item">
         </form>
       </div>
-
-
-      <p>better yet would have the items looking like items: [{name: "name of task", priority: priority of task}, {name: "name of task 2", proirity: priority level}]</p>
     </main>
     <footer>
       <h4>Dev Notes</h4>
+      <p>when you hit the edit item... it toggles a class that hides the checkbox and display and shows an input field in its place with a button to edit</p>
       <p>
         The show page will allow a user to make more detailed notes for the items in their checklist. This is where they view a checklist... maybe it pops out... show you have a list of your lists, then when you click on one in displays in that page - was there a better way to use hidden pages then the one I had figured out?
       </p>
@@ -54,7 +64,12 @@
       <p>when a user clicks on a checklist.items[] the number ni the array tell sus which item to update. updating an array item is checlist.items[2]=blahdeblah... how to translate this to mongo</p>
     </footer>
   </div>
+  <script>
+    $(() => {
 
+      $("#edit-item-btn").runs a funciton that toggles class of editted button
+    })
+  </script>
 </body>
 
 </html>

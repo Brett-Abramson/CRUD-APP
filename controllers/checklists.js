@@ -49,4 +49,13 @@ router.delete("/:id/:itemIndex", (req,res) => {
         res.redirect(`/checklists/${req.params.id}`)
     })
 })
+//===   EDIT ITEM   ===
+router.put("/:id/:itemIndex", (req,res) => {
+    Checklist.findById(req.params.id).then((checklist) => {
+        checklist.items.splice(req.params.itemIndex,1, req.body.items.toString())
+        return checklist.save()
+    }).then (() => {
+        res.redirect(`/checklists/${req.params.id}`)
+    })
+})
 module.exports = router
