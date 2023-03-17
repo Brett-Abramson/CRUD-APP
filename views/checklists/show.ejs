@@ -1,46 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <%- include("../partials/head.ejs") %>
-    <title><%=checklist.name%></title>
+  <%- include("../partials/head.ejs") %>
+  <title><%=checklist.title%></title>
 </head>
+
 <body>
-    <div class="container-fluid">
+  <div class="container-fluid">
     <header>
-            <%- include("../partials/nav.ejs") %>
-        <h1><%=checklist.name%></h1>
+      <%- include("../partials/nav.ejs") %>
+      <h1><%=checklist.title%></h1>
     </header>
     <main>
-        <div class="checklist-container">
+      <div class="checklist-container">
         <% for( let i = 0; i < checklist.items.length; i++) { %>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault<%=i%>">
-                <label class="form-check-label<%=i%>" for="flexCheckDefault">
-                  <%=checklist.items[i]%>
-                </label>
-              </div>
-            <% } %>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault<%=i%>">
+          <label class="form-check-label<%=i%>" for="flexCheckDefault">
+              <a href="#collapse" data-bs-toggle="collapse" role="button"  >
+            <%=checklist.items[i]%>
+        </a>
+          </label>
+          </input>
+          <div class="collapse show">
+            <form action=""></form>
+          </div>
         </div>
-        <div class="checklist-add-item-container">
-            <form action="/checklists/<%=checklist._id%>?_method=PUT" method="POST">
-                <% for( let i = 0; i < checklist.items.length; i++) { %>
-                    <input type="hidden" name="items" value="<%=checklist.items[i]%>">
-                    <% } %>
-                <label for="addChecklistItem">Add Item</label>
-                <input type="text" name="items" id="addChecklistItem">
-                <input type="submit" value="Add Item">
-            </form>
-        </div>
+        <% } %>
+      </div>
+      <div class="checklist-add-item-container">
+        <form action="/checklists/<%=checklist._id%>?_method=PUT" method="POST">
+          <% for( let i = 0; i < checklist.items.length; i++) { %>
+          <input type="hidden" name="items" value="<%=checklist.items[i]%>">
+          <% } %>
+          <label for="addChecklistItem">Add Item</label>
+          <input type="text" name="items" id="addChecklistItem">
+          <input type="submit" value="Add Item">
+        </form>
+      </div>
 
 
-        <p>better yet would have the items looking like items: [{name: "name of task", priority: priority of task}, {name: "name of task 2", proirity: priority level}]</p>
+      <p>better yet would have the items looking like items: [{name: "name of task", priority: priority of task}, {name: "name of task 2", proirity: priority level}]</p>
     </main>
     <footer>
-        <h4>Dev Notes</h4>
-        <p>
-            The show page will allow a user to make more detailed notes for the items in their checklist. This is where they view a checklist... maybe it pops out... show you have a list of your lists, then when you click on one in displays in that page - was there a better way to use hidden pages then the one I had figured out?
-        </p>
+      <h4>Dev Notes</h4>
+      <p>
+        The show page will allow a user to make more detailed notes for the items in their checklist. This is where they view a checklist... maybe it pops out... show you have a list of your lists, then when you click on one in displays in that page - was there a better way to use hidden pages then the one I had figured out?
+      </p>
+      <p>When you click on an item on this page, an accordian displays two buttons: Update, meaning change the name, & Delete</p>
+      <p>when a user clicks on a checklist.items[] the number ni the array tell sus which item to update. updating an array item is checlist.items[2]=blahdeblah... how to translate this to mongo</p>
     </footer>
-</div>
+  </div>
+
 </body>
+
 </html>
