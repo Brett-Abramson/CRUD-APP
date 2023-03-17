@@ -52,10 +52,16 @@ router.delete("/:id/:itemIndex", (req,res) => {
 //===   EDIT ITEM   ===
 router.put("/:id/:itemIndex", (req,res) => {
     Checklist.findById(req.params.id).then((checklist) => {
-        checklist.items.splice(req.params.itemIndex,1, req.body.items.toString())
+        checklist.items.splice(req.params.itemIndex, 1, req.body.items.toString())
         return checklist.save()
     }).then (() => {
         res.redirect(`/checklists/${req.params.id}`)
+    })
+})
+//===   DELETE LIST ===
+router.delete("/:id", (req,res) => {
+    Checklist.findByIdAndRemove(req.params.id).then(()=> {
+        res.redirect("/checklists")
     })
 })
 module.exports = router

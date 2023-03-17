@@ -25,7 +25,7 @@
             </label>
             </input>
           </div>
-          <div id="edit-checklist-item-<%=i%>">
+          <div id="edit-checklist-item-<%=i%>" class="hidden">
             <form action="/checklists/<%=checklist._id%>/<%=[i]%>?_method=PUT" method="POST">
                 <input type="text" name="items[<%=i%>]" value="<%=checklist.items[i]%>">
                 <input type="submit" value="Edit Item">          
@@ -63,11 +63,21 @@
       <p>When you click on an item on this page, an accordian displays two buttons: Update, meaning change the name, & Delete</p>
       <p>when a user clicks on a checklist.items[] the number ni the array tell sus which item to update. updating an array item is checlist.items[2]=blahdeblah... how to translate this to mongo</p>
     </footer>
+    <div class="delete-checklist">
+        <form action="/checklists/<%=checklist._id%>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete List">
+        </form>
+    </div>
   </div>
   <script>
+    const testing = () => {
+        console.log(`works?`)
+        let length = checklist.items.length
+    }
     $(() => {
 
-      $("#edit-item-btn").runs a funciton that toggles class of editted button
+            $("#edit-item-btn-1").on("click",testing())              
+        
     })
   </script>
 </body>

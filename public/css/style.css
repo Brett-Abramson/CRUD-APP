@@ -5,3 +5,6 @@
 .task-table-heads:hover {
     cursor: pointer;
 }
+.hidden {
+    display: none;
+}
