@@ -7,23 +7,39 @@
 <body>
     <header>
         <%- include("../partials/nav.ejs") %>
-        <h1>New Task</h1>
+        <h1 class="text-center">New Task</h1>
     </header>
     <div class="container">
         
         <main>
-            <form action="/tasks" method="POST">
-                <label for="taskName">Name:</label>
-                <input type="text" name="name" id="taskName" /><br>
-                <label for="taskDate">Date:</label>
-                <input type="text" name="date" id="taskDate" /><br>
-                <label for="taskDetails">Details:</label>
-                <input type="text" name="details" id="taskDetails" /><br>
-                <label for="taskCategory">Category</label>
-                <input type="text" name="category" /><br>
-                <label for="taskTags">Tags</label>
-                <input type="text" name="tags" id="taskTags"/><br>
-                <input type="submit" value="Add Task">
+            <form action="/tasks" method="POST" class="row justify-content-center">
+                <div class="row">
+                    <label for="taskName">Name</label>
+                    <input type="text" name="name" id="taskName" class="form-control" /><br>
+                </div>
+                <div class="row">
+                    <label for="taskDate">Date</label>
+                    <input type="text" name="date" id="taskDate" class="form-control" /><br>
+                </div>
+                <div class="row">
+                    <label for="taskDetails">Details</label>
+                    <input type="text" name="details" id="taskDetails" class="form-control" /><br>
+                </div>
+                <div class="row">
+                    <label for="taskCategory">Category</label>
+                    <input type="text" name="category" id="taskCategory" class="form-control" /><br>
+                </div>
+                <div class="row">
+                    <label for="taskTags">Tags</label>
+                    <input type="text" name="tags" id="taskTags" class="form-control" /><br>
+                </div>
+                <div class="row g-4">
+                    <div class="col-auto">
+                        <input type="submit" value="Add Task" class="btn btn-primary">
+                    </div>
+                </div>
+
+                    
             </form>
         </main>
     </div>

@@ -1,68 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Home</title>
-    <%- include("../partials/head.ejs") %>
+  <title>Home</title>
+  <%- include("../partials/head.ejs") %>
 </head>
+
 <body>
-    <div class="container">
-        <header class="row justify-content-center">
-            <%- include("../partials/nav.ejs") %>
-            <h1 class="text-center">Task Tracker</h1>
-        </header>
-    </div>
-    <div class="container-fluid">
-            <ul>
-                <li>
-                    <a href="/tasks/new">Create a new Task</a>
-                </li>
-            </ul>
-        <main>
-            <h2>Tasks</h2>
-            <ul>
-                <% for(let i = 0; i < tasks.length; i++) { %>
-                    <li>
-                        <%=tasks[i].name%>
-                    </li>
-                <% } %>
-            </ul>
-            <div class="table-container">
-                <table class="table" id="task-table">
-                    <thead>
-                        <tr>
-                            <th class="task-table-heads" id="task-table-name">Name</th>
-                            <th class="task-table-heads">Date</th>
-                            <th class="task-table-heads">Details</th>
-                            <th class="task-table-heads">Category</th>
-                            <th class="task-table-heads">Tags</th>
-                            <th class="task-table-heads">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% for(let i = 0; i < tasks.length; i++) { %>
-                            <tr>
-                                <td><%=tasks[i].name%></td>
-                                <td><%=tasks[i].date%></td>
-                                <td><%=tasks[i].details%></td>
-                                <td><%=tasks[i].category%></td>
-                                <td><%=tasks[i].tags%></td>
-                                <td><a href="/tasks/<%=tasks[i]._id%>"><button>Edit</button></a></td>
-                            </tr>
-                        <% } %>
-                    </tbody>
-                </table>
-            </div>
-        </main>
-    </div>
-<script>
-    
-    $( () => {
-        $("#task-table").DataTable({
-            paging: false
-        })
+  <div class="container">
+    <header class="row justify-content-center">
+      <%- include("../partials/nav.ejs") %>
+      <h1 class="text-center">Task Tracker</h1>
+    </header>
+  </div>
+  <div class="container-fluid">
+    <main>
+      <h2>Tasks</h2>
+      <ul>
+        <% for(let i = 0; i < tasks.length; i++) { %>
+        <li>
+          <%=tasks[i].name%>
+        </li>
+        <% } %>
+      </ul>
+      <div class="row">
+        <div class="col">
+          <a href="/tasks/new"><button class="btn btn-primary"> Add a Task</button></a>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="table" id="task-table">
+          <thead>
+            <tr>
+              <th class="task-table-heads" id="task-table-name">Name</th>
+              <th class="task-table-heads">Date</th>
+              <th class="task-table-heads">Details</th>
+              <th class="task-table-heads">Category</th>
+              <th class="task-table-heads">Tags</th>
+              <th class="task-table-heads">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i = 0; i < tasks.length; i++) { %>
+            <tr>
+              <td><%=tasks[i].name%></td>
+              <td><%=tasks[i].date%></td>
+              <td><%=tasks[i].details%></td>
+              <td><%=tasks[i].category%></td>
+              <td><%=tasks[i].tags%></td>
+              <td><a href="/tasks/<%=tasks[i]._id%>"><button class="btn btn-outline-primary">Edit</button></a></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script>
+    $(() => {
+      $("#task-table").DataTable({
+        paging: false
+      })
 
     })
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -25,10 +25,10 @@
             </label>
             </input>
           </div>
-          <div id="edit-checklist-item-<%=i%>" class="hidden">
+          <div id="edit-checklist-item-<%=i%>" class="">
             <form action="/checklists/<%=checklist._id%>/<%=[i]%>?_method=PUT" method="POST">
-                <input type="text" name="items[<%=i%>]" value="<%=checklist.items[i]%>">
-                <input type="submit" value="Edit Item">          
+              <input type="text" name="items[<%=i%>]" value="<%=checklist.items[i]%>">
+              <input type="submit" value="Edit Item">
             </form>
           </div>
 
@@ -54,30 +54,21 @@
         </form>
       </div>
     </main>
-    <footer>
-      <h4>Dev Notes</h4>
-      <p>when you hit the edit item... it toggles a class that hides the checkbox and display and shows an input field in its place with a button to edit</p>
-      <p>
-        The show page will allow a user to make more detailed notes for the items in their checklist. This is where they view a checklist... maybe it pops out... show you have a list of your lists, then when you click on one in displays in that page - was there a better way to use hidden pages then the one I had figured out?
-      </p>
-      <p>When you click on an item on this page, an accordian displays two buttons: Update, meaning change the name, & Delete</p>
-      <p>when a user clicks on a checklist.items[] the number ni the array tell sus which item to update. updating an array item is checlist.items[2]=blahdeblah... how to translate this to mongo</p>
-    </footer>
     <div class="delete-checklist">
-        <form action="/checklists/<%=checklist._id%>?_method=DELETE" method="POST">
-            <input type="submit" value="Delete List">
+      <form action="/checklists/<%=checklist._id%>?_method=DELETE" method="POST">
+          <input type="submit" value="Delete List" class="btn btn-danger">
         </form>
     </div>
   </div>
   <script>
     const testing = () => {
-        console.log(`works?`)
-        let length = checklist.items.length
+      console.log(`works?`)
+      let length = checklist.items.length
     }
     $(() => {
 
-            $("#edit-item-btn-1").on("click",testing())              
-        
+      $("#edit-item-btn-1").on("click", testing())
+
     })
   </script>
 </body>

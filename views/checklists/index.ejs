@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include("../partials/head.ejs") %>
-    <title>Checklist</title>
-</head>
-<body>
-    <div class="container">
-        <header class="row justify-content-center">
-                <%- include("../partials/nav.ejs") %>
-            <h1 class="text-center">Checklists</h1>
-        </header>
-    </div>
-    <div class="container-fluid">
-        <main>
-            <ul>
-                <li>
-                    <a href="/checklists/new">Create A New Checklist</a>
-                </li>
-            </ul>
-            <h2>List of Checklists</h2>
-            <ul>
-                <% for( let i = 0; i < checklists.length; i++) { %>
-                    <li>
-                        <a href="/checklists/<%=checklists[i]._id%>"><%=checklists[i].title%></a>
-                    </li>
-                <% } %>
-            </ul>
 
-        </main>
-    </div>
+<head>
+  <%- include("../partials/head.ejs") %>
+  <title>Checklist</title>
+</head>
+
+<body>
+  <div class="container">
+    <header class="row justify-content-center">
+      <%- include("../partials/nav.ejs") %>
+      <h1 class="text-center">Checklists</h1>
+    </header>
+  </div>
+  <div class="container-fluid">
+    <main>
+        <div class="row">
+            <div class="col-auto">
+
+                <a href="/checklists/new">Create A New Checklist</a>
+            </div>
+        </div>
+        <div class="spacer row"></div>
+        <div class="spacer row"></div>
+      <div class="row">
+        <div class="col-auto">
+            <h2>List of Checklists</h2>
+            <ul class="list-group">
+              <% for( let i = 0; i < checklists.length; i++) { %>
+                <a href="/checklists/<%=checklists[i]._id%>">
+                <li class="list-group-item list-group-item-action">
+                <%=checklists[i].title%>
+              </li>
+            </a>
+              <% } %>
+            </ul>
+        </div>
+      </div>
+
+
+    </main>
+  </div>
 </body>
+
 </html>

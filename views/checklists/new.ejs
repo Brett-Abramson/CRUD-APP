@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include("../partials/head.ejs") %>
-    <title>New Checklist</title>
-</head>
-<body>
-    <header>
-            <%- include("../partials/nav.ejs") %>
-        <h1>Create A New Checklist</h1>
-            <ul>
-                <li>
-                    <a href="/checklists/"><button>Checklists</button></a>
-                </li>
-            </ul>
-    </header>
-    <main>
-        <form action="/checklists" method="post">
-            <label for="checklist-name">Checklist Name</label>
-            <input type="text" name="title" id="checklist-name" />
-            <div class="new-item-container">
-                <label for="item-name">Item 1:</label>
-                <input type="text" name="items" id="item-name" />
-                <label for="item-name">Item 2:</label>
-                <input type="text" name="items" id="item-name" />
 
+<head>
+  <%- include("../partials/head.ejs") %>
+  <title>New Checklist</title>
+</head>
+
+<body>
+  <header>
+    <%- include("../partials/nav.ejs") %>
+    <h1 class="text-center">Create A New Checklist</h1>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-auto">
+          <form action="/checklists" method="post">
+            <div class="mb-3">
+              <label for="checklist-name" class="form-label">Checklist Name</label>
+              <input type="text" name="title" id="checklist-name" class="form-control" />
             </div>
-            
-            <input type="submit" value="Create Checklist" />
-        </form>
-    </main>
+            <div class="mb-3">
+              <label for="item-name" class="form-label">Item 1:</label>
+              <input type="text" name="items" id="item-name" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="item-name" class="form-label">Item 2:</label>
+              <input type="text" name="items" id="item-name" class="form-control" />
+            </div>
+
+            <input type="submit" value="Create Checklist" class="btn btn-primary" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
+
 </html>
