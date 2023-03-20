@@ -5,16 +5,18 @@
     <%- include("../partials/head.ejs") %>
 </head>
 <body>
+    <div class="container">
+        <header class="row justify-content-center">
+            <%- include("../partials/nav.ejs") %>
+            <h1 class="text-center">Task Tracker</h1>
+        </header>
+    </div>
     <div class="container-fluid">
-        <%- include("../partials/nav.ejs") %>
-        <h1>Task Tracker</h1>
-        <nav>
             <ul>
                 <li>
                     <a href="/tasks/new">Create a new Task</a>
                 </li>
             </ul>
-        </nav>
         <main>
             <h2>Tasks</h2>
             <ul>

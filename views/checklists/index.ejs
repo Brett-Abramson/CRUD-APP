@@ -6,19 +6,18 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <nav>
+        <header class="row justify-content-center">
                 <%- include("../partials/nav.ejs") %>
-            </nav>
-            <h1>Checklists</h1>
+            <h1 class="text-center">Checklists</h1>
+        </header>
+    </div>
+    <div class="container-fluid">
+        <main>
             <ul>
                 <li>
                     <a href="/checklists/new">Create A New Checklist</a>
                 </li>
             </ul>
-        </header>
-
-        <main>
             <h2>List of Checklists</h2>
             <ul>
                 <% for( let i = 0; i < checklists.length; i++) { %>
